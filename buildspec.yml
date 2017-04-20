@@ -19,4 +19,4 @@ phases:
       - docker save --output ${IMAGE_NAME}.tar.gz $IMAGE_NAME
 artifacts:
   files:
-    - ${IMAGE_NAME}.tar.gz
+    - "*.tar.gz"
