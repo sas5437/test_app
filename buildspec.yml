@@ -2,12 +2,12 @@
 version: 0.1
 
 environment_variables:
-	plaintext:
-		FLASK_APP: "app.py"
+  plaintext:
+    FLASK_APP: "app.py"
 phases:
   install:
     commands:
-			- echo Nothing to do in the install phase
+      - echo Nothing to do in the install phase
   pre_build:
     commands:
       - echo Nothing to do in the pre_build phase...
