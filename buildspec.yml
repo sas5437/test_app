@@ -1,10 +1,6 @@
 # AWS CodeBuild buildspec.yml to specify build commands
 version: 0.1
 
-environment_variables:
-  plaintext:
-    TAR_FILE: "${IMAGE_NAME}.tar.gz"
-
 phases:
   install:
     commands:
@@ -20,7 +16,7 @@ phases:
   post_build:
     commands:
       - echo Build completed on `date`
-      - docker save --output $TAR_FILE $IMAGE_NAME
+      - docker save --output ${IMAGE_NAME}.tar.gz $IMAGE_NAME
 artifacts:
   files:
-    - $TAR_FILE
+    - ${IMAGE_NAME}.tar.gz
