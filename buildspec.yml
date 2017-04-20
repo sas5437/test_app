@@ -1,10 +1,15 @@
 # AWS CodeBuild buildspec.yml to specify build commands
 version: 0.1
 
+environment_variables:
+  plaintext:
+    - TAR_FILE: ${IMAGE_NAME}.tar.gz
+
 phases:
   install:
     commands:
       - echo Nothing to do in the install phase
+      - echo $TAR_FILE
   pre_build:
     commands:
       - echo Nothing to do in the pre_build phase...
