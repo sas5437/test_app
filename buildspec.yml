@@ -14,10 +14,10 @@ phases:
   build:
     commands:
       - echo Build started on `date`
-      - docker build -t $IMAGE_NAME
+      - docker build -t $IMAGE_NAME .
   post_build:
     commands:
       - echo Build completed on `date`
 artifacts:
   files:
-    - "**/*"
+    - "app/*"
