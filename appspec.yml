@@ -1,0 +1,17 @@
+version: 0.0
+os: linux
+files:
+  - source: /
+    destination: /tmp/app
+hooks:
+  BeforeInstall:
+    - location: scripts/before_install.sh
+  AfterInstall:
+    - location: scripts/after_install.sh
+      timeout: 180
+  ApplicationStart:
+    - location: scripts/application_start.sh
+      timeout: 3600
+  ValidateService:
+    - location: scripts/validate_service.sh
+      timeout: 3600	

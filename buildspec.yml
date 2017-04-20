@@ -4,19 +4,18 @@ version: 0.1
 phases:
   install:
     commands:
-      - echo Nothing to do in the install phase
-      - echo $TAR_FILE
+      - echo Nothing to do in the install phase	
   pre_build:
     commands:
       - echo Nothing to do in the pre_build phase...
   build:
     commands:
       - echo Build started on `date`
-      - docker build -t $IMAGE_NAME .
+      - docker build -t appimage .
   post_build:
     commands:
       - echo Build completed on `date`
-      - docker save --output ${IMAGE_NAME}.tar.gz $IMAGE_NAME
+      - docker save --output app-$(date +%Y-%m-%d--%H-%M-%S).tar.gz appimage
 artifacts:
   files:
     - "*.tar.gz"
