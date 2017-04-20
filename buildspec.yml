@@ -1,9 +1,6 @@
 # AWS CodeBuild buildspec.yml to specify build commands
 version: 0.1
 
-environment_variables:
-  plaintext:
-    FLASK_APP: "app.py"
 phases:
   install:
     commands:
@@ -18,6 +15,7 @@ phases:
   post_build:
     commands:
       - echo Build completed on `date`
+      - docker save --output $TAR_FILE $IMAGE_NAME
 artifacts:
   files:
-    - "app/*"
+    - $TAR_FILE
